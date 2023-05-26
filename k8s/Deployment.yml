@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task10p
+  labels:
+    app: sit737_task10p
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sit737_task10p
+  template:
+    metadata:
+      labels:
+        app: sit737_task10p
+    spec:
+      containers:
+      - name: task10p
+        image: gcr.io/sit737-23t1-arora-5acc5a5/task10p:sit737
+        ports:
+        - containerPort: 3000
+        imagePullPolicy: Always
